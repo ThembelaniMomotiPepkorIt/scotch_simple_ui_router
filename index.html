@@ -2,9 +2,9 @@
 <html ng-app = "myApp">
 	<head>
 		<title>ui_router</title>
-		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
-    	<script src="js/angular-ui-router.min.js"></script>
-    	<script>
+        <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+       	<script>
         	var myApp = angular.module('myApp', ['ui.router']);
         	
         	myApp.controller('List1Controller', function($scope){
@@ -15,9 +15,9 @@
         		$scope.things = ['a','set','of','things'];
         	});
 
-        	myApp.config(function($stateProvider, $urlRouteProvider){
+        	myApp.config(function($stateProvider, $urlRouterProvider){
 
-        		$urlRouteProvider.otherwise("/state1");
+        		$urlRouterProvider.otherwise("/state1");
 
         		$stateProvider
         			.state('state1',{
@@ -27,7 +27,7 @@
         			.state('state1.list',{
         				url:'/list',
         				templateUrl: 'partials/state1.list.html',
-        				controller: List1Controller
+        				controller: 'List1Controller'
         			})
         			.state('state2',{
         				url:'/state2',
@@ -36,7 +36,7 @@
         			.state('state2.list', {
         				url: '/list',
         				templateUrl: 'partials/state2.list.html',
-        				controller: List2Controller
+        				controller: 'List2Controller'
         			});
         			
 
